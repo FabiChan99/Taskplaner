@@ -1,13 +1,13 @@
-use cursive::{Cursive, CursiveExt};
-use cursive::view::{Nameable, Resizable};
-use cursive::views::{NamedView, ResizedView, SelectView};
 use crate::db::init_db;
 use crate::views::{login_dialog, open_subwindow, MenuOption};
+use cursive::view::{Nameable, Resizable};
+use cursive::views::{NamedView, ResizedView, SelectView};
+use cursive::{Cursive, CursiveExt};
 
 mod db;
 mod model;
-mod views;
 mod utils;
+mod views;
 
 fn main() {
     init_db().expect("Failed to initialize database");
@@ -15,9 +15,6 @@ fn main() {
     login_dialog(&mut siv);
     siv.run();
 }
-
-
-
 
 fn main_menu_select() -> ResizedView<NamedView<SelectView<MenuOption>>> {
     let mut select = SelectView::new();
